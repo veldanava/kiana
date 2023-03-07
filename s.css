@@ -106,11 +106,11 @@ article {
 }
 
 h2 {
-  display: grid;
-  gap: 0.25ex;
-  position: relative;
-  max-inline-size: 25ch;
-  -webkit-margin-before: var(--section-spacing);
+	display: grid;
+	gap: 0.25ex;
+	position: relative;
+	max-inline-size: 25ch;
+	-webkit-margin-before: var(--section-spacing);
           margin-block-start: var(--section-spacing);
   font-size: clamp( var(--pt-great-primer), var(--pt-small-pica) + 4.125vw, var(--pt-double-great-primer) );
   line-height: 1.2;
@@ -118,8 +118,9 @@ h2 {
 
 h2::before,
 h2::after {
-  font-size: var(--pt-long-primer);
-  line-height: 1;
+	font-size: var(--pt-long-primer);
+	color: yellow;
+	line-height: 1;
 }
 
 h2::before {
@@ -167,54 +168,6 @@ p:first-child {
           margin-block-start: 0;
 }
 
-figure,
-table {
-  -webkit-margin-before: calc(var(--section-spacing) * 0.5);
-          margin-block-start: calc(var(--section-spacing) * 0.5);
-}
-
-figure {
-  position: relative;
-  inset-inline-start: 50%;
-  inset-inline-end: 50%;
-  inline-size: 100%;
-  inline-size: 100vw;
-  -webkit-margin-start: -50vw;
-          margin-inline-start: -50vw;
-  -webkit-margin-end: -50vw;
-          margin-inline-end: -50vw;
-  padding-inline: var(--page-padding-inline);
-  -webkit-padding-after: 1ex;
-          padding-block-end: 1ex;
-  overflow: auto;
-  scrollbar-gutter: stable;
-}
-
-table {
-  inline-size: 100%;
-  max-inline-size: var(--line-length);
-}
-
-table,
-th,
-td {
-  border: 1px solid;
-}
-
-th,
-td {
-  padding: 0.5ex;
-  text-align: start;
-}
-
-th {
-  padding-block: 1ex;
-  font-weight: 600;
-  font-size: var(--pt-bourgeois);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
 caption {
   -webkit-margin-after: calc(var(--stack) * 0.5);
           margin-block-end: calc(var(--stack) * 0.5);
@@ -254,23 +207,11 @@ caption {
           margin-block-start: 2vmax;
 }
 
-[lang=zh-Hans] {
-  font-family: system-ui, sans-serif;
-}
-
-table [lang=zh-Hans] {
-  font-weight: 600;
-}
-
-figure div[lang=zh-Hans] {
-  -ms-writing-mode: tb-lr;
-      writing-mode: vertical-lr;
-}
-figure div[lang=zh-Hans] [class^=pt-] {
-  font-weight: 900;
-  letter-spacing: 0.25em;
-}
-figure div[lang=zh-Hans] [class^=pt-]::before {
-  min-block-size: 100%;
-  font-size: var(--pt-xiaowu);
+img {
+	width: 150px;
+	height: 150px;
+	margin-bottom: 55px;
+	border-radius: 35px  15px;
+	/* box-shadow: rgba(27, 33, 37, 0.48) 6px 2px 16px 0px, rgba(20, 19, 19, 0.8) -6px -2px 16px 0px; */
+	box-shadow: 10px 10px 50px 0px rgba(21,23,26,1);
 }
