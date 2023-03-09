@@ -37,6 +37,10 @@
   box-sizing: border-box;
 }
 
+h2, p, span, small, footer {
+  color: white;
+}
+
 * {
   margin: 0;
   padding: 0;
