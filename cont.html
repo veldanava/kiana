@@ -258,6 +258,11 @@
         open = !open;
       });
     }
+      var uri = window.location.toString();
+if (uri.indexOf("cont.html") > 0) {
+    var clean_uri = uri.substring(0, uri.indexOf("cont.html"));
+    window.history.replaceState({}, document.title, clean_uri);
+}
   </script>
 </body>
 </html>
