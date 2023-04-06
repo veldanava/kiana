@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>KIANA</title>
+  <link rel="shortcut icon" href="https://cdn3.iconfinder.com/data/icons/moe-moe-icons/500/ballon-c-64.png" type="image/x-icon">
+</head>
+<style>
+  @font-face {
+    font-family: "Anybody";
+    src: url("https://assets.codepen.io/1492907/Anybody.woff2") format("woff2");
+  }
+  * {
+    font-family: "Anybody";
+    margin: 0;
+    box-sizing: border-box;
+    color: black;
+  }
+  
+  .header__top {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    padding: 1.5rem calc(100vw / 24 * 1) 0;
+    justify-content: space-between;
+  }
+  @media (max-width: 1080px) {
+    .header__top {
+      padding: 1.5rem 1.5rem 0;
+    }
+  }
+  .header__trigger {
+    position: relative;
+    background: none;
+    border: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+  }
+  .header__trigger::before, .header__trigger::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 1.5rem;
+    height: 2px;
+    border-radius: 1px;
+    background-color: currentColor;
+    top: 0;
+    transition: transform 1s cubic-bezier(0.17, 0.67, 0, 1), background-color 0.4s ease-out;
+  }
+  .header__trigger::before {
+    transform: translateY(10px);
+  }
+  .header__trigger::after {
+    transform: translateY(17px);
+  }
+  .header__trigger.open {
+    color: #fff;
+  }
+  .header__trigger.open::before {
+    transform: translateY(14px) rotate(45deg) scale(0.85);
+  }
+  .header__trigger.open::after {
+    transform: translateY(14px) rotate(-45deg) scale(0.85);
+  }
+  .header__nav {
+    overflow: scroll;
+    position: fixed;
+    background-color: #363636;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    padding: calc(100vw / 24 * 2);
+    color: color(Light);
+    --panel-bottom-1: 0%;
+    --panel-bottom-2: 0%;
+    --panel-bottom-3: 0%;
+    --panel-bottom-4: 0%;
+    pointer-events: none;
+    transform: translateY(-101%);
+    transition: transform 0s 0.9s;
+    -webkit-clip-path: polygon(0 0, 0 var(--panel-bottom-1), 25% var(--panel-bottom-1), 25% 0, 25% 0, 25% var(--panel-bottom-2), 50% var(--panel-bottom-2), 50% 0, 50% 0, 50% var(--panel-bottom-3), 75% var(--panel-bottom-3), 75% 0, 75% 0, 75% var(--panel-bottom-4), 100% var(--panel-bottom-4), 100% 0);
+            clip-path: polygon(0 0, 0 var(--panel-bottom-1), 25% var(--panel-bottom-1), 25% 0, 25% 0, 25% var(--panel-bottom-2), 50% var(--panel-bottom-2), 50% 0, 50% 0, 50% var(--panel-bottom-3), 75% var(--panel-bottom-3), 75% 0, 75% 0, 75% var(--panel-bottom-4), 100% var(--panel-bottom-4), 100% 0);
+  }
+  @media (max-width: 1080px) {
+    .header__nav {
+      padding: 8rem 1.5rem;
+    }
+  }
+  .header__nav.open {
+    pointer-events: all;
+    transform: translateY(0);
+    transition: transform 0s;
+  }
+  .header__list {
+    padding: 0;
+    list-style: none;
+  }
+  .header__item {
+    font-size: calc(100vw / 24 * 2);
+    font-variation-settings: "wght" 700;
+    transition: font-variation-settings 1s cubic-bezier(0.17, 0.67, 0, 1);
+  }
+  @media (max-width: 1080px) {
+    .header__item {
+      font-size: 2.5rem;
+    }
+  }
+  .header__item:hover {
+    font-variation-settings: "wght" 900;
+  }
+  .header__item + .header__item {
+    margin-top: 0.35em;
+  }
+  .header__link {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .fake-content {
+    padding: calc(100vw / 24 * 3) calc(100vw / 24 * 1);
+  }
+  @media (max-width: 1080px) {
+    .fake-content {
+      padding: 8rem 1.5rem;
+    }
+  }
+  .fake-content h1 {
+    font-size: calc(100vw / 24 * 2);
+    font-variation-settings: "wght" 700;
+  }
+  .fake-content p {
+    width: calc(100vw / 24 * 14);
+    max-width: 100ch;
+    line-height: 1.5;
+  }
+  .fake-content p span {
+    background: black;
+    color: #fff;
+  }
+  .fake-content p:first-of-type {
+    font-size: 2rem;
+    margin-top: 1.5em;
+  }
+  .fake-content p + p {
+    margin-top: 1.25em;
+  }
+  input[type=text]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 10px;
+  color: black;
+  box-sizing: border-box;
+  }
+  input[type=email]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 10px;
+    color: black;
+    box-sizing: border-box;
+    }
+  .mes{
+    width: 100%;
+    height: 125px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 10px;
+    color: black;
+    box-sizing: border-box;
+  }
+  .but{
+    background: black;
+    width: 130px;
+    height: 45px;
+    color: white;
+    font-size: 15px; 
+    border-radius: 10px;
+    margin-top: 25px;
+  }
+</style>
+
+<body>
+<div class="header">
+  <div class="header__top">
+    <button class="header__trigger"></button>
+  </div>
+  <nav class="header__nav">
+    <ul class="header__list">
+      <li class="header__item"><a class="header__link" href="index.html">Index</a></li>
+      <li class="header__item"><a class="header__link" onclick="alert('soon')" href="#">Project</a></li>
+      <li class="header__item"><a class="header__link" href="cont.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+<section class="fake-content">
+  <h1>You can contact me...</h1>
+  <form method="POST" enctype="multipart/form-data" action="contact.php">
+    <p> <input type="text" id="name" name="Name"placeholder="ur name..."> </p>
+    <p> <input type="email" id="email" name="Email"placeholder="ur email..."> </p>
+    <p> <input class="mes" id="message" name="Message"placeholder="give me an message..."> </p>
+    <button class="but" type="submit">Submit</button>
+  </form>
+</section>
+
+  <script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script>
+  <script>
+    let open = false;
+    
+    const trigger = document.querySelector(".header__trigger");
+    if (trigger) {
+      const headerNav = document.querySelector(".header__nav");
+      trigger.addEventListener("click", () => {
+        trigger.classList.toggle("open");
+        headerNav.classList.toggle("open");
+        const amount = open ? 0 : 100;
+        gsap.
+        timeline({}).
+        to(headerNav, 0.4, {
+          "--panel-bottom-1": amount,
+          ease: "Power1.easeOut" }).
+    
+        to(
+        headerNav,
+        0.4,
+        {
+          "--panel-bottom-2": amount,
+          ease: "Power1.easeOut" },
+    
+        0.1).
+    
+        to(
+        headerNav,
+        0.4,
+        {
+          "--panel-bottom-3": amount,
+          ease: "Power1.easeOut" },
+    
+        0.2).
+    
+        to(
+        headerNav,
+        0.4,
+        {
+          "--panel-bottom-4": amount,
+          ease: "Power1.easeOut" },
+    
+        0.3);
+    
+        open = !open;
+      });
+    }
+  </script>
+</body>
+</html>
