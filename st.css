@@ -64,7 +64,7 @@ h1 {
 }
 
 .magazine-layout {
-  margin-top: 1rem;
+  margin-top: 0.1rem;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-row-gap: 2rem;
