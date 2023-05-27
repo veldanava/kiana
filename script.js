@@ -43,19 +43,34 @@ React.createElement(App, null),
 document.body);
 
 
+function persistParams() {
+  const PARAMS_KEY = "__params";
 
-function getURLParameter(name) {
-	return decodeURI((RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]);
-}
-function hideURLParams() {
-	//Parameters to hide (ie ?success=value, ?error=value, etc)
-	var hide = ['success','error'];
-	for(var h in hide) {
-		if(getURLParameter(h)) {
-			history.replaceState(null, document.getElementsByTagName("title")[0].innerHTML, window.location.pathname);
-		}
-	}
+  if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
+    const persistedParams = sessionStorage.getItem(PARAMS_KEY);
+
+    if (persistedParams) {
+      return persistedParams;
+    }
+  }
+
+  sessionStorage.setItem(PARAMS_KEY, location.search);
+
+  return location.search;
 }
 
-//Run onload, you can do this yourself if you want to do it a different way
-window.onload = hideURLParams;
+function hideParams() {
+  persistParams();
+
+  history.replaceState(null, document.title, window.location.pathname);
+
+  window.addEventListener("beforeunload", () => {
+    history.replaceState(
+      null,
+      document.title,
+      window.location.pathname + (sessionStorage.getItem(PARAMS_KEY) || "")
+    );
+  });
+}
+
+window.addEventListener("load", hideParams, false);
