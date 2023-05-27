@@ -157,6 +157,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   margin-top: 1.5rem;
+  margin-bottom: 20px;
 }
 
 .article-author-img {
@@ -179,7 +180,7 @@ h1 {
 }
 .article-author-info dt {
   font-weight: bold;
-  font-size: 17px;
+  font-size: 15px;
 }
 .article-author-info dd {
   font-size: 13px;
@@ -191,7 +192,7 @@ h1 {
 }
 
 .art:hover{
- box-shadow: 17px 18px 50px -3px rgba(2, 2, 2, 0.425),0px 10px 15px -3px rgba(0,0,0,0.1);
+ box-shadow: 17px 18px 50px -3px rgba(32, 54, 95, 0.425),0px 10px 15px -3px rgba(0,0,0,0.1);
  filter: grayscale(5);
  border-radius: 25px 5px 25px 5px;
  cursor: pointer;
@@ -220,8 +221,8 @@ a:hover{
 }
 
 .article-author-imgs {
-  width: 4.3rem;
-  height: 4.3rem;
+  width: 4.5rem;
+  height: 4.5rem;
   border-radius: 12px;
   background-color: #323232;
   overflow: hidden;
@@ -240,4 +241,9 @@ a:hover{
 
 .ermm{
   margin-bottom: 20px;
+}
+
+.love{
+  margin-top: 15px;
+ text-align: center;
 }
