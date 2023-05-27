@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>K I A N A | article</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<meta name="description" content="hello im kiana">
 	<meta name="keywords" content="kiana">
 	<link rel="shortcut icon" href="https://cdn1.iconfinder.com/data/icons/japan-element/48/24-cultures-daruma-fortune-toys-japanese-japan-512.png" type="image/x-icon">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
@@ -37,13 +37,13 @@
 						<dl>
 							<dt class="uhuy">Hello</dt>
 							<dd class="uhuy1">i'm Kiana</dd>
-							<dd class="uhuy1">back-end coder's</dd>
+							<dd class="uhuy1">owner of this website</dd>
 						</dl>
 					</div>
 
 				</div>
 				<div class="article-excerpt">
-					<p>hello, I am the owner of this website
+					<p>hello, Im the owner of this website
 						Im an back-end coder's, cybersecurity enthusiast, linux enthusiast ( btw i use arch ),  begineer ui/ux designer, and also front-end developer.
 						<br>
 						<br>
@@ -51,7 +51,7 @@
 					</p>
 					<p>
 						how to connect with me?<br>
-						you can find me on <a href="https://instagram.com/alexander.s.kennedy">instagram</a>, <a href="https://github.com/veldanava">github</a>, <a href="#">hackerone</a>, <a href="#">linkedin</a>
+						you can find me on <a href="https://instagram.com/alexander.s.kennedy">instagram</a>, <a href="https://github.com/veldanava">github</a>, <a href="https://hackerone.com/kianakaslana">hackerone</a>, <a href="#">linkedin</a>, <a href="https://figma.com/">figma</a>
 					</p>
 				</div>
 				<div class="erm"></div>
@@ -63,10 +63,10 @@
 					<img class="art" src="https://i.pinimg.com/736x/c3/96/b7/c396b715d21f85d3144777eb5871040d.jpg" />
 				</figure>
 				<h2 class="article-title article-title--medium">
-					<a href="#" class="article-link">Lorem Ipsum</a>
+					<a href="art1.html" class="article-link">Performing Evil Twin Attack with an virtual tools</a>
 				</h2>
 				<div class="article-excerpt">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus rutrum mi non porta venenatis. Integer bibendum ut dui vitae rutrum. Nam viverra justo non tellus pharetra, ac suscipit turpis volutpat. Nullam vel volutpat dui. Nulla mattis libero ut ultrices faucibus. Nam auctor facilisis nisi ac ornare. Sed id purus urna. Donec volutpat ex ac laoreet sollicitudin. Nullam at mi ut augue facilisis porttitor.</p>
+					<p>what is the Evil Twin attack? what is the impact? how to prevent it?</p>
 				</div>
 				<div class="article-author">
 					<div class="article-author-img">
@@ -134,39 +134,6 @@
 		</div>
 	</div>
 </main>
-
-<script>
-	function persistParams() {
-  const PARAMS_KEY = "__params";
-
-  if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
-    const persistedParams = sessionStorage.getItem(PARAMS_KEY);
-
-    if (persistedParams) {
-      return persistedParams;
-    }
-  }
-
-  sessionStorage.setItem(PARAMS_KEY, location.search);
-
-  return location.search;
-}
-
-function hideParams() {
-  persistParams();
-
-  history.replaceState(null, document.title, window.location.pathname);
-
-  window.addEventListener("beforeunload", () => {
-    history.replaceState(
-      null,
-      document.title,
-      window.location.pathname + (sessionStorage.getItem(PARAMS_KEY) || "")
-    );
-  });
-}
-
-window.addEventListener("load", hideParams, false);
-</script>
+<h3 class="love">made with ❤ by Kiana</h3>
 </body>
 </html>
